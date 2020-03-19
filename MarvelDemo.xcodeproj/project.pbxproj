@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F5223CFA2422EBC9009486C1 /* MarvelCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5223CF92422EBC9009486C1 /* MarvelCodable.swift */; };
+		F5223D1924231363009486C1 /* ProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5223D1824231363009486C1 /* ProgressHud.swift */; };
+		F5223D1B2423AD28009486C1 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5223D1A2423AD28009486C1 /* ImageViewExtension.swift */; };
+		F56B0AD02422841F009AF2E1 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B0ACF2422841F009AF2E1 /* WebServices.swift */; };
 		F5867B712421946500B10620 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5867B702421946500B10620 /* AppDelegate.swift */; };
-		F5867B732421946500B10620 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5867B722421946500B10620 /* SceneDelegate.swift */; };
 		F5867B752421946500B10620 /* MarvelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5867B742421946500B10620 /* MarvelViewController.swift */; };
 		F5867B782421946500B10620 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5867B762421946500B10620 /* Main.storyboard */; };
 		F5867B7B2421946500B10620 /* MarvelDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5867B792421946500B10620 /* MarvelDemo.xcdatamodeld */; };
@@ -17,9 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F5223CF92422EBC9009486C1 /* MarvelCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCodable.swift; sourceTree = "<group>"; };
+		F5223D1824231363009486C1 /* ProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHud.swift; sourceTree = "<group>"; };
+		F5223D1A2423AD28009486C1 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
+		F56B0ACF2422841F009AF2E1 /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
 		F5867B6D2421946500B10620 /* MarvelDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5867B702421946500B10620 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F5867B722421946500B10620 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F5867B742421946500B10620 /* MarvelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelViewController.swift; sourceTree = "<group>"; };
 		F5867B772421946500B10620 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5867B7A2421946500B10620 /* MarvelDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarvelDemo.xcdatamodel; sourceTree = "<group>"; };
@@ -59,9 +65,12 @@
 			isa = PBXGroup;
 			children = (
 				F5867B702421946500B10620 /* AppDelegate.swift */,
-				F5867B722421946500B10620 /* SceneDelegate.swift */,
 				F5867B742421946500B10620 /* MarvelViewController.swift */,
+				F5223D1824231363009486C1 /* ProgressHud.swift */,
 				F5867B762421946500B10620 /* Main.storyboard */,
+				F56B0ACF2422841F009AF2E1 /* WebServices.swift */,
+				F5223D1A2423AD28009486C1 /* ImageViewExtension.swift */,
+				F5223CF92422EBC9009486C1 /* MarvelCodable.swift */,
 				F5867B7C2421946700B10620 /* Assets.xcassets */,
 				F5867B7E2421946700B10620 /* LaunchScreen.storyboard */,
 				F5867B812421946700B10620 /* Info.plist */,
@@ -142,9 +151,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5867B752421946500B10620 /* MarvelViewController.swift in Sources */,
+				F5223D1B2423AD28009486C1 /* ImageViewExtension.swift in Sources */,
+				F56B0AD02422841F009AF2E1 /* WebServices.swift in Sources */,
 				F5867B712421946500B10620 /* AppDelegate.swift in Sources */,
-				F5867B732421946500B10620 /* SceneDelegate.swift in Sources */,
 				F5867B7B2421946500B10620 /* MarvelDemo.xcdatamodeld in Sources */,
+				F5223D1924231363009486C1 /* ProgressHud.swift in Sources */,
+				F5223CFA2422EBC9009486C1 /* MarvelCodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +232,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
