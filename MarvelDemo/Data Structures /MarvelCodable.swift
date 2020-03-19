@@ -43,8 +43,7 @@ struct Result: Codable {
     let collectedIssues: [JSONAny]?
     let characters: Characters?
     let variantDescription: String?
-    var imageDownloaded: UIImage? = UIImage.init(named:"holder")
-
+    
     enum CodingKeys: String, CodingKey {
         case resultDescription
         case modified, prices, thumbnail, title, diamondCode, issn, events, upc, images, creators, textObjects, pageCount, ean, id, dates, format, resourceURI, stories, isbn, urls, variants, issueNumber, collections, series

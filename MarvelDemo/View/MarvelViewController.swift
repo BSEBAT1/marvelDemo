@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MarvelViewController: UIViewController {
     
     private let progressHUD = ProgressHUD(text: "Fetching Data")
@@ -37,28 +38,14 @@ class MarvelViewController: UIViewController {
                         self?.titleLabel.text = comicBookData.results[0].title
                         self?.descBox.text = comicBookData.results[0].textObjects?[0].text
                         if var url = comicBookData.results[0].thumbnail?.path {
-                           url = url+"/detail.jpg"
-                        self?.coverImage.loadImageUsingCacheWithUrlString(urlString:url)
+                            url = url+"/detail.jpg"
+                            self?.coverImage.loadImageUsingCacheWithUrlString(urlString:url)
                         }
                     }
                 }
             }
         }
     }
-    
-    func setImage(from url: String) {
-        guard let imageURL = URL(string: url) else { return }
-        print(imageURL)
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
-            
-            let image = UIImage(data: imageData)
-            DispatchQueue.main.async {
-                self.coverImage.image = image
-            }
-        }
-    }
-    
 }
 
 

@@ -26,38 +26,45 @@ class WebServices {
             completion(nil,"failed to generate correct url check if keys are valid")
             return
         }
-                var task = URLSessionDownloadTask.init()
-                task = session.downloadTask(with: url, completionHandler: { (tempUrl, response, error) in
-                    guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                        completion(nil,"unable to connect to server")
-                        return
-                        
-                    }
-                    if let error = error {
-                        completion(nil,"error connecting to server:\(error.localizedDescription)")
-                        return
-                    }
-                    guard let fileLocation = tempUrl else {return}
-                    guard let data = try? Data.init(contentsOf: fileLocation) else {return}
-                    do {
-                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
-                            guard let jsonData = json["data"] as? [String:Any] else {return}
-                            let jsonObj = try JSONSerialization.data(withJSONObject: jsonData, options: .prettyPrinted)
-                            let marvelObj = try JSONDecoder().decode(MarvelObj.self, from: jsonObj)
-                            completion(marvelObj,nil)
-                        } else {
-                           completion(nil,"error parsing json data")
-                        }
-                    } catch let error as NSError {
-                        completion(nil,error.localizedDescription)
-                    }
-                })
-                    
-                task.resume()
+        var task = URLSessionDownloadTask.init()
+        task = session.downloadTask(with: url, completionHandler: { (tempUrl, response, error) in
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(nil,"unable to connect to server")
+                return
+                
+            }
+            if let error = error {
+                completion(nil,"error connecting to server:\(error.localizedDescription)")
+                return
+            }
+            guard let fileLocation = tempUrl else {
+               completion(nil,"error parsing json data")
+                return
+            }
+            guard let data = try? Data.init(contentsOf: fileLocation) else {
+                completion(nil,"error parsing json data")
+                return}
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+                    guard let jsonData = json["data"] as? [String:Any] else {
+                        completion(nil,"error parsing json data")
+                        return}
+                    let jsonObj = try JSONSerialization.data(withJSONObject: jsonData, options: .prettyPrinted)
+                    let marvelObj = try JSONDecoder().decode(MarvelObj.self, from: jsonObj)
+                    completion(marvelObj,nil)
+                } else {
+                    completion(nil,"error parsing json data")
+                }
+            } catch let error as NSError {
+                completion(nil,error.localizedDescription)
+            }
+        })
         
+        task.resume()
+
     }
     
-    func MD5(_ string: String) -> String? {
+    private func MD5(_ string: String) -> String? {
         let length = Int(CC_MD5_DIGEST_LENGTH)
         var digest = [UInt8](repeating: 0, count: length)
         if let d = string.data(using: .utf8) { _ = d.withUnsafeBytes { body -> String in CC_MD5(body.baseAddress, CC_LONG(d.count), &digest)
