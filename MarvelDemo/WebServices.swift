@@ -19,8 +19,10 @@ class WebServices {
     // MARK: - API Calls -
     
     func fetchApiData(completion: @escaping (_ data:MarvelObj?, _ failure:String?) -> ()) {
-        let apiKey = "effb80dc84b84faad35bc2aae6d301bf"
-        let privateKey = "471a9d5978e4083d11629f3ef22bec8b660480bb"
+        #warning("You must Add API KEYS")
+        
+        let apiKey = "INSERT KEY HERE"
+        let privateKey = "INSERT KEY HERE"
         let timeStamp = String(Date().timeIntervalSince1970)
         guard let hash = MD5(timeStamp+privateKey+apiKey) else {
             completion(nil,"failed to generate hash check if keys are valid")

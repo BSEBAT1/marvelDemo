@@ -21,11 +21,10 @@ class MarvelDemoTests: XCTestCase {
     
     // MARK: - Webservice Tests -
     func testWebserviceResponse() {
-        
         let session = URLSession.shared
-        
-        let apiKey = "effb80dc84b84faad35bc2aae6d301bf"
-        let privateKey = "471a9d5978e4083d11629f3ef22bec8b660480bb"
+        #warning("You must Add API KEYS")
+        let apiKey = "ADD KEY HERE "
+        let privateKey = "ADD KEY HERE"
         let timeStamp = String(Date().timeIntervalSince1970)
         let expect = expectation(description: "Download marvel files and parse")
                guard let hash = MD5(timeStamp+privateKey+apiKey) else {
