@@ -11,7 +11,13 @@ import CommonCrypto
 import UIKit
 
 class WebServices {
-    let session = URLSession.shared
+    
+    // MARK: - Private Properties -
+    
+    private let session = URLSession.shared
+    
+    // MARK: - API Calls -
+    
     func fetchApiData(completion: @escaping (_ data:MarvelObj?, _ failure:String?) -> ()) {
         let apiKey = "effb80dc84b84faad35bc2aae6d301bf"
         let privateKey = "471a9d5978e4083d11629f3ef22bec8b660480bb"
@@ -38,7 +44,7 @@ class WebServices {
                 return
             }
             guard let fileLocation = tempUrl else {
-               completion(nil,"error parsing json data")
+                completion(nil,"error parsing json data")
                 return
             }
             guard let data = try? Data.init(contentsOf: fileLocation) else {
@@ -61,8 +67,10 @@ class WebServices {
         })
         
         task.resume()
-
+        
     }
+    
+    // MARK: - Hash Function -
     
     private func MD5(_ string: String) -> String? {
         let length = Int(CC_MD5_DIGEST_LENGTH)

@@ -10,16 +10,22 @@ import UIKit
 
 
 class MarvelViewController: UIViewController {
-    
+    // MARK: - Private Properties -
     private let progressHUD = ProgressHUD(text: "Fetching Data")
     
     @IBOutlet var coverImage: CustomImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descBox: UITextView!
     
+    // MARK: - LifeCycle Methods -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(progressHUD)
+        loadComic()
+    }
+    
+    // MARK: - Load Comic -
+   private func loadComic() {
         let webservice = WebServices.init()
         webservice.fetchApiData {[weak self] (data, error) in
             

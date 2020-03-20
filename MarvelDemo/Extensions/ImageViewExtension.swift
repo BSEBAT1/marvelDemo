@@ -9,14 +9,16 @@
 import UIKit
 import Foundation
 
+// MARK: - Global Properties -
 let imageCache = NSCache<AnyObject, AnyObject>()
 
 class CustomImageView: UIImageView {
     
-    var imageUrlString: String?
+    private var imageUrlString: String?
     
     let activityIndicator = UIActivityIndicatorView()
     
+    // MARK: - Load Image -
     func loadImageUsingCacheWithUrlString(urlString: String) {
         
         imageCache.totalCostLimit = 50_000_000

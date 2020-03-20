@@ -10,15 +10,16 @@ import XCTest
 import CommonCrypto
 
 class MarvelDemoTests: XCTestCase {
-
+    // MARK: - LifeCycle Methods -
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
     
+    // MARK: - Webservice Tests -
     func testWebserviceResponse() {
         
         let session = URLSession.shared
@@ -68,7 +69,7 @@ class MarvelDemoTests: XCTestCase {
         
         wait(for: [expect], timeout: 15)
     }
-    
+    // MARK: - Hash Method -
     private func MD5(_ string: String) -> String? {
             let length = Int(CC_MD5_DIGEST_LENGTH)
             var digest = [UInt8](repeating: 0, count: length)
@@ -78,16 +79,4 @@ class MarvelDemoTests: XCTestCase {
             }
             return (0..<length).reduce("") { $0 + String(format: "%02x", digest[$1]) } }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
